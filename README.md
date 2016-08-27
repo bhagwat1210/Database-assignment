@@ -12,3 +12,7 @@ select name from students s where 5=(select count(distinct(name)) from students 
 — getting the individual rank within the challenges 
 
 select challenge_id,hacker_id,rank() over(partition by challenge_id order by score desc) "Rank" from submissions;
+
+-- Two pairs (X1, Y1) and (X2, Y2) are said to be symmetric pairs if X1 = Y2 and X2 = Y1.Write a query to output all such symmetric pairs in ascending order by the value of X.
+
+SELECT p1.rowid,p2.rowid,p1.*,p2.* FROM FUNCTIONS P1, FUNCTIONS P2 WHERE P1.X = P2.Y AND P1.Y = P2.X  AND P1.ROWID <> P2.ROWID;
